@@ -52,15 +52,17 @@
 
 	<ItemGroup>
 	  <AndroidResource Remove="Percistence\**" />
+	  <AndroidResource Remove="Repositories\**" />
 	  <Compile Remove="Percistence\**" />
+	  <Compile Remove="Repositories\**" />
 	  <EmbeddedResource Remove="Percistence\**" />
+	  <EmbeddedResource Remove="Repositories\**" />
 	  <MauiCss Remove="Percistence\**" />
+	  <MauiCss Remove="Repositories\**" />
 	  <MauiXaml Remove="Percistence\**" />
+	  <MauiXaml Remove="Repositories\**" />
 	  <None Remove="Percistence\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Remove="Repositories\TransactionReposytories.cs" />
+	  <None Remove="Repositories\**" />
 	</ItemGroup>
 
 	
