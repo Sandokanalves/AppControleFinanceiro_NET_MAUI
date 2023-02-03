@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>ControleFinaceiro</ApplicationTitle>
+		<ApplicationTitle>Controle Finaceiro</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.controlefinaceiro</ApplicationId>
@@ -32,10 +32,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Resources\AppIcon\appiconfg_android.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#000000" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#000000" />
+		
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#000000" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -49,7 +51,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Percistence\**" />
+	  <Compile Remove="Percistence\**" />
+	  <EmbeddedResource Remove="Percistence\**" />
+	  <MauiCss Remove="Percistence\**" />
+	  <MauiXaml Remove="Percistence\**" />
+	  <None Remove="Percistence\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Repositories\TransactionReposytories.cs" />
+	</ItemGroup>
+
+	
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+		<PackageReference Include="FirebaseDatabase.Platform.net" Version="3.0.0" />
+		<PackageReference Include="LiteDB" Version="5.0.15" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	
+	<ItemGroup>
+	  <Folder Include="Models\" />
 	</ItemGroup>
 
 </Project>
